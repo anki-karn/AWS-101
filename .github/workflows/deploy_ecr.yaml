@@ -8,6 +8,7 @@ on:
 
 jobs: 
   dockerfile:
+    runs-on: ubuntu
     name: "firstdeploy"
     steps:
       - name: 'gitclone'
