@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.get("/")
 def home():
-    return "Hello World!"
+    return "it is easy!"
 
 if __name__ == "__main__":
     app.run("0.0.0.0")
