@@ -1,4 +1,4 @@
-name: "aws-deployment"
+name: aws-deployment
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  dockerfile:
+  build:
     runs-on: ubuntu
     name: "firstdeploy"
     steps:
