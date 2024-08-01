@@ -7,4 +7,4 @@
 
 # github workflow
     - Every push to dev branch -> push to dev env
-    - Every tag to master / manual trigger -> push to prod env
+    - Every tag to master / manual trigger -> push to prod env testing
