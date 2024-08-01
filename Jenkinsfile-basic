@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Run docker build with sudo
-                    sh "sudo docker build -t ${IMAGE_NAME}:latest ."  
+                    sh "echo 'admin' | sudo -S docker build -t ${IMAGE_NAME}:latest ."  
                 }
             }
         }
