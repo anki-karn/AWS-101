@@ -17,11 +17,9 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                script {
-                    // Run docker build with sudo
-                    sh "echo 'admin' | sudo -S docker build -t ${IMAGE_NAME}:latest ."  
-                }
-            }
+                 script {
+                    docker.build("${IMAGE_NAME}:latest")
+                }            }
         }
         stage('Login to ECR') {
             steps {
