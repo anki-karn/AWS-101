@@ -2,9 +2,8 @@ pipeline {
     agent any 
 
     environment {
-        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-
+        AWS_ACCESS_KEY_ID = 'AKIAW3MD6N7C2QNPV57R'
+        AWS_SECRET_ACCESS_KEY = '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'
         AWS_DEFAULT_REGION = 'eu-central-1'
         IMAGE_NAME = 'public.ecr.aws/m9n8x5g7/ankit-docker-project/firstproject' 
     }
