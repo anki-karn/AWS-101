@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 471112511429.dkr.ecr.eu-central-1.amazonaws.com'
-                    docker.withRegistry("${IMAGE_NAME}", 'aws-credentials') {
+                    docker.withRegistry('https://public.ecr.aws/m9n8x5g7/ankit-docker-project/firstproject', 'aws-credentials') {
                     sh "docker push ${IMAGE_NAME}:latest" 
 }
     }
