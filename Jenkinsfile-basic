@@ -31,12 +31,12 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 script {
-                    docker.withRegistry('https://471112511429.dkr.ecr.public.ecr.aws/m9n8x5g7/ankit-docker-project.amazonaws.com', 'ecr:public.ecr.aws/m9n8x5g7/ankit-docker-project:aws-credentials') {
-                        def myImage = docker.build("${IMAGE_NAME}:latest")
-                        myImage.push('success')
-                    }
-                }
+                    docker.withRegistry('https://471112511429.dkr.ecr.public.ecr.aws/m9n8x5g7/ankit-docker-project.amazonaws.com', 'aws-credentials') {
+                    def myImage = docker.build("${IMAGE_NAME}:latest")
+                    myImage.push('success')
             }
         }
     }
+}
+}
 }
