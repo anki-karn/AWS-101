@@ -21,18 +21,11 @@ pipeline {
                 }
             }
         }
-        stage('Login to ECR') {
-            steps {
-                withAWS(credentials: 'aws-credentials') {
-                    sh 'aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 471112511429.dkr.ecr.eu-central-1.amazonaws.com'
-                }
-            }
-        }
         stage('Push to ECR') {
             steps {
                 withAWS(credentials: 'aws-credentials') {
                     sh """
-                        aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 471112511429.dkr.ecr.eu-central-1.amazonaws.com
+                        aws ecr-public get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 471112511429.dkr.ecr.eu-central-1.amazonaws.com
                         docker push ${IMAGE_NAME}:latest
                     """
                 }
