@@ -9,13 +9,6 @@ pipeline {
     }
 
     stages {
-        stage('Setup Docker Context') {
-            steps {
-                script {
-                    sh 'docker context use desktop-linux'
-                }
-            }
-        }
         stage('Checkout') {
             steps {
                 checkout scm
@@ -37,9 +30,9 @@ pipeline {
         }
         stage('Push to ECR') {
             steps {
-                script {
+                withEnv(['DOCKER_HOST=unix:///Users/ankitkumarkarn/.docker/run/docker.sock']) {
                     docker.withRegistry('https://471112511429.dkr.ecr.eu-central-1.amazonaws.com', 'aws-credentials') {
-                        sh "docker push ${IMAGE_NAME}:latest" 
+                        sh "docker push ${IMAGE_NAME}:latest"
                     }
                 }
             }
