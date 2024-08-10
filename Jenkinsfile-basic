@@ -9,6 +9,13 @@ pipeline {
     }
 
     stages {
+        stage('Setup Docker Context') {
+            steps {
+                script {
+                    sh 'docker context use desktop-linux'
+                }
+            }
+        }
         stage('Checkout') {
             steps {
                 checkout scm
